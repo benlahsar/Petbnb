@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import Map from "../components/Map";
 import Home from "../components/Home";
 
-export default function HosterHomePage() {
+export default function PetOwnerHomePage() {
   const [showMap, setShowMap] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
