@@ -3,7 +3,7 @@ import ShowMapButton from "../components/ShowMapButton";
 import { useState } from "react";
 import Map from "../components/Map";
 
-export default function HosterHomePage() {
+export default function PetOwnerHomePage() {
   const [showMap, setShowMap] = useState(false);
 
   const handleShowMap = () => {
