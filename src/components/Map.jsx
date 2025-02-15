@@ -19,7 +19,7 @@ export default function Map() {
   return (
     <>
       <MapContainer
-        className="-z-10 h-screen w-full"
+        className="z-10 h-screen w-full"
         center={position}
         zoom={12}
       >

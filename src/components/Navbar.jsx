@@ -3,23 +3,23 @@ import AnimalCategory from "./AnimalCategory";
 import DropDownCurrency from "./DropDownCurrency";
 import DropDownProfile from "./DropDownProfile";
 
-export default function Navbar({ showMap }) {
+export default function Navbar({ showMap, isScrolled }) {
   return (
     <header
-      className={`font-body transition-all duration-300 z-50 ${
-        showMap ? "max-h-64 shadow-md" : "max-h-60 shadow-sm"
+      className={`font-body fixed top-0 right-0 left-0 transition-all duration-300 z-50 ${
+        isScrolled || showMap ? "max-h-64 shadow-md" : "max-h-60 shadow-sm"
       }`}
     >
       <nav
         className={`w-full ${
-          showMap ? "p-1" : "p-3"
+          showMap || isScrolled ? "p-1" : "p-3"
         } transition-all duration-300 bg-white`}
       >
         <div className="flex justify-between items-center">
           <img
             src="https://res.cloudinary.com/du9af99hf/image/upload/v1739531828/assets/petbnb_images/ew0vc64kvcumjudjcmsl.png"
             alt="logo"
-            className={`block ${showMap ? "w-28" : "w-32"} h-auto transition-all duration-300`}
+            className={`block ${showMap || isScrolled ? "w-28" : "w-32"} h-auto transition-all duration-300`}
           />
           <div className="flex justify-between w-1/2 items-center p-1 border border-gray-300 rounded-full shadow-md">
             <input
