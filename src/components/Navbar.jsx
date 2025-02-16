@@ -15,11 +15,13 @@ export default function Navbar({ showMap, isScrolled }) {
           showMap || isScrolled ? "p-1" : "p-3"
         } transition-all duration-300 bg-white`}
       >
-        <div className="flex justify-between items-center">
+        <div className="flex justify-between items-center mx-3">
           <img
-            src="https://res.cloudinary.com/du9af99hf/image/upload/v1739531828/assets/petbnb_images/ew0vc64kvcumjudjcmsl.png"
+            src="https://res.cloudinary.com/du9af99hf/image/upload/v1739713299/assets/petbnb_images/omck1zxgtko18qfowhqw.png"
             alt="logo"
-            className={`block ${showMap || isScrolled ? "w-28" : "w-32"} h-auto transition-all duration-300`}
+            className={`block ${
+              showMap || isScrolled ? "w-20" : "w-24"
+            } mb-3 mt-1 h-auto transition-all duration-300`}
           />
           <div className="flex justify-between w-1/2 items-center p-1 border border-gray-300 rounded-full shadow-md">
             <input
