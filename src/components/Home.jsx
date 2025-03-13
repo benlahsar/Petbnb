@@ -7,7 +7,7 @@ function Home() {
   const [listings] = useState(listingsData);
 
   return (
-    <main className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 p-6 mt-60">
+    <main className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 p-6">
       {listings.map((listing) => (
         <div
           key={listing.id}
