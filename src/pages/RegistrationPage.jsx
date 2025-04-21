@@ -72,7 +72,7 @@ const RegistrationPage = () => {
 
                 {/* Header */}
                 <div className="text-center mb-10">
-                    <h1 className="text-3xl font-bold mb-2">Register Account to <span
+                    <h1 className="text-3xl font-bold mb-2">Register to <span
                         className="text-emerald-900">Petbnb</span></h1>
                     <p className="text-gray-500">Get your free Petbnb account now</p>
                 </div>

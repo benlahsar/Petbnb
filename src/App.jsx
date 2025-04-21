@@ -5,6 +5,8 @@ import NotFound from "./pages/NotFound.jsx";
 import ListingDetails from "./components/ListingDetails.jsx";
 import LoginPage from "./pages/Login.jsx";
 import RegistrationPage from "./pages/RegistrationPage.jsx";
+import HostingForm from "./pages/HostingFormPage.jsx";
+import ListingPage from "./pages/ListingPage.jsx";
 
 function App() {
   return (
@@ -16,6 +18,8 @@ function App() {
         <Route path="/auth/login" element={<LoginPage />} />
         <Route path="/auth/register" element={<RegistrationPage />} />
         <Route path="/not-found" element={<NotFound />} />
+        <Route path="/host/create" element={<HostingForm />} />
+        <Route path="/host/listings" element={<ListingPage />} />
       </Routes>
     </Router>
   );

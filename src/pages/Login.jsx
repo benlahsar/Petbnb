@@ -80,12 +80,13 @@ const LoginPage = () => {
                     </div>
 
                     <div className="text-center mb-10">
-                        <h1 className="text-3xl font-bold mb-2">Register Account to <span
+                        <h1 className="text-3xl font-bold mb-2">Login to <span
                             className="text-emerald-900">Petbnb</span></h1>
                         <p className="text-gray-500">Get your free Petbnb account now</p>
                     </div>
 
                     <form onSubmit={handleSubmit}>
+
                         <div className="mb-6">
                             <input
                                 type="email"
@@ -93,18 +94,6 @@ const LoginPage = () => {
                                 value={formData.email}
                                 onChange={handleChange}
                                 placeholder="Email"
-                                className="w-full px-4 py-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-emerald-600"
-                                required
-                            />
-                        </div>
-
-                        <div className="mb-6">
-                            <input
-                                type="text"
-                                name="username"
-                                value={formData.username}
-                                onChange={handleChange}
-                                placeholder="Username"
                                 className="w-full px-4 py-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-emerald-600"
                                 required
                             />
@@ -129,25 +118,12 @@ const LoginPage = () => {
                             </button>
                         </div>
 
-                        <div className="mb-6 flex items-center">
-                            <input
-                                type="checkbox"
-                                checked={agreed}
-                                onChange={() => setAgreed(!agreed)}
-                                className="h-4 w-4 border border-gray-300 rounded mr-2"
-                                required
-                            />
-                            <label className="text-gray-500 text-sm">
-                                I agree to all the term and condition.
-                            </label>
-                        </div>
-
                         <button
                             type="submit"
                             className="w-full bg-gray-800 text-white py-3 rounded hover:bg-gray-700 transition duration-300"
                             disabled={!agreed}
                         >
-                            Register
+                            Login
                         </button>
                     </form>
 
