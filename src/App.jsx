@@ -7,6 +7,7 @@ import LoginPage from "./pages/Login.jsx";
 import RegistrationPage from "./pages/RegistrationPage.jsx";
 import HostingForm from "./pages/HostingFormPage.jsx";
 import ListingPage from "./pages/ListingPage.jsx";
+import TestListing from "./pages/TestListings.jsx";
 
 function App() {
   return (
@@ -14,12 +15,13 @@ function App() {
       <Routes>
         <Route path="/" element={<PetOwnerHomePage />} />
         <Route path="/host/home" element={<BecomeHost />} />
-        <Route path="/listing/:id" element={<ListingDetails />} />
+        {/* <Route path="/listing/:id" element={<ListingDetails />} /> */}
         <Route path="/auth/login" element={<LoginPage />} />
         <Route path="/auth/register" element={<RegistrationPage />} />
         <Route path="/not-found" element={<NotFound />} />
         <Route path="/host/create" element={<HostingForm />} />
-        <Route path="/host/listings" element={<ListingPage />} />
+        <Route path="/listing/:id" element={<ListingPage />} />
+        <Route path="/test/listings" element={<TestListing />} />
       </Routes>
     </Router>
   );

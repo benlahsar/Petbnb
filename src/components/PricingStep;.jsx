@@ -3,26 +3,17 @@ import { CalendarIcon } from "lucide-react";
 import { format } from "date-fns";
 
 export default function PricingStep({ formData, updateFormData }) {
-  const [date, setDate] = useState({
-    from: formData.availableDates.start || undefined,
-    to: formData.availableDates.end || undefined,
-  });
-
+  const [date, setDate] = useState(formData.availableDate || undefined);
   const [isCalendarOpen, setIsCalendarOpen] = useState(false);
 
   const handleDateSelect = (selectedDate) => {
     setDate(selectedDate);
     updateFormData({
-      availableDates: {
-        start: selectedDate.from || null,
-        end: selectedDate.to || null,
-      },
+      availableDate: selectedDate || null,
     });
   };
 
-  // Simple date selector implementation
-  // Note: In a real app, you'd need a proper date picker library
-  // This is a simplified version for demonstration purposes
+  // ...existing code...
 
   return (
     <div className="space-y-6">
@@ -71,17 +62,10 @@ export default function PricingStep({ formData, updateFormData }) {
               onClick={() => setIsCalendarOpen(!isCalendarOpen)}
             >
               <CalendarIcon className="mr-2 h-4 w-4 text-gray-500" />
-              {date.from ? (
-                date.to ? (
-                  <>
-                    {format(date.from, "LLL dd, y")} -{" "}
-                    {format(date.to, "LLL dd, y")}
-                  </>
-                ) : (
-                  format(date.from, "LLL dd, y")
-                )
+              {date ? (
+                format(date, "LLL dd, y")
               ) : (
-                <span className="text-gray-500">Select date range</span>
+                <span className="text-gray-500">Select date</span>
               )}
             </button>
 
@@ -89,12 +73,10 @@ export default function PricingStep({ formData, updateFormData }) {
               <div className="absolute z-10 mt-1 w-96 bg-white border border-gray-200 rounded-md shadow-lg p-4">
                 <div className="text-center mb-4">
                   <p className="text-sm text-gray-500">
-                    In a real implementation, this would be a date range picker
-                    calendar.
+                    In a real implementation, this would be a date picker calendar.
                   </p>
                   <p className="text-sm text-gray-500 mt-1">
-                    For this demo, you can use these buttons to simulate
-                    selection:
+                    For this demo, you can use these buttons to simulate selection:
                   </p>
                 </div>
 
@@ -104,39 +86,24 @@ export default function PricingStep({ formData, updateFormData }) {
                     className="px-4 py-2 bg-blue-50 hover:bg-blue-100 text-blue-700 rounded-md text-sm"
                     onClick={() => {
                       const today = new Date();
-                      const nextWeek = new Date();
-                      nextWeek.setDate(today.getDate() + 7);
-
-                      const newDate = {
-                        from: today,
-                        to: nextWeek,
-                      };
-
-                      handleDateSelect(newDate);
+                      handleDateSelect(today);
                       setIsCalendarOpen(false);
                     }}
                   >
-                    Select next 7 days
+                    Select today
                   </button>
 
                   <button
                     type="button"
                     className="px-4 py-2 bg-blue-50 hover:bg-blue-100 text-blue-700 rounded-md text-sm"
                     onClick={() => {
-                      const today = new Date();
-                      const nextMonth = new Date();
-                      nextMonth.setMonth(today.getMonth() + 1);
-
-                      const newDate = {
-                        from: today,
-                        to: nextMonth,
-                      };
-
-                      handleDateSelect(newDate);
+                      const tomorrow = new Date();
+                      tomorrow.setDate(tomorrow.getDate() + 1);
+                      handleDateSelect(tomorrow);
                       setIsCalendarOpen(false);
                     }}
                   >
-                    Select next 30 days
+                    Select tomorrow
                   </button>
 
                   <button
@@ -152,8 +119,7 @@ export default function PricingStep({ formData, updateFormData }) {
           </div>
 
           <p className="mt-2 text-xs text-gray-500">
-            Select the date range when your space will be available for
-            pet-sitting.
+            Select the date when your space will be available for pet-sitting.
           </p>
         </div>
       </div>

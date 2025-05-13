@@ -1,5 +1,4 @@
 import { Calendar, CheckCircle, DollarSign, Shield } from "lucide-react";
-import WelcomeNavbar from "../components/WelcomeNavbar.jsx";
 import AtrractSection from "../components/AtrractSection.jsx";
 import { useNavigate } from "react-router-dom";
 

@@ -6,10 +6,11 @@ import PricingStep from "../components/PricingStep;";
 import ReviewStep from "../components/ReviewStep";
 import ProgressSteps from "../components/ProgressSteps";
 import { useNavigate } from "react-router-dom";
+import api from "../auth/api";
 
 export default function HostingForm() {
   const [currentStep, setCurrentStep] = useState(0);
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     title: "",
     description: "",
@@ -19,10 +20,7 @@ export default function HostingForm() {
     amenities: [],
     photos: [],
     price: 0,
-    availableDates: {
-      start: null,
-      end: null,
-    },
+    availableDate: "",
   });
 
   const steps = [
@@ -51,12 +49,30 @@ export default function HostingForm() {
     setFormData({ ...formData, ...data });
   };
 
-  const handleSubmit = async () => {
-    // In a real app, you would send the data to your backend
-    // console.log("Submitting form data:", formData);
-    // alert("Your listing has been created successfully!");
-    navigate('/host/listings')
-    // Reset form or redirect
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await api.post("/api/listing", {
+        listing_title: formData.title,
+        description: formData.description,
+        pet_type: formData.petTypes,
+        localisation: formData.location,
+        space_type: formData.spaceType,
+        services: formData.amenities,
+        photos: formData.photos,
+        price: formData.price,
+        availibility_date: formData.availableDate,
+      });
+      if (
+        (response.status === 200 || response.status === 201) &&
+        response.data?.data?.id
+      ) {
+        navigate(`/listing/${response.data.data.id}`);
+      }
+      console.log(response.status);
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   const CurrentStepComponent = steps[currentStep].component;

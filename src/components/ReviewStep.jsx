@@ -87,7 +87,7 @@ export default function ReviewStep({ formData }) {
         {formData.photos.length > 0 ? (
           <div className="aspect-video relative rounded-lg overflow-hidden">
             <img
-              src={formData.photos[0] || "/placeholder.svg"}
+              src={'/joe-caione-qO-PIF84Vxg-unsplash.jpg'}
               alt="Listing main photo"
               className="absolute inset-0 w-full h-full object-cover"
             />
@@ -145,11 +145,8 @@ export default function ReviewStep({ formData }) {
                   <div>
                     <p className="text-sm font-medium">Available</p>
                     <p className="text-sm text-gray-500">
-                      {formData.availableDates.start &&
-                      formData.availableDates.end
-                        ? `${formatDate(
-                            formData.availableDates.start
-                          )} - ${formatDate(formData.availableDates.end)}`
+                      {formData.availableDate
+                        ? formatDate(formData.availableDate)
                         : "No availability set"}
                     </p>
                   </div>
